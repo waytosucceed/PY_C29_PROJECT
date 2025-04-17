@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width: device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+    <link rel="icon" type="image/x-icon" href="Logo_last.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffde57;
+            text-align: center;
+            color: #333;
+        }
+
+        .header {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 5px 30px;
+            background-color: white;
+            text-align: left;
+        }
+
+        .logo {
+            width: 5%;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .header-image {
+            width: 30%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            margin: 1rem 2rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 2rem;
+        }
+
+        .highlight {
+            background: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .image-container {
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        ol {
+            li {
+                margin-bottom: 0.7rem;
+            }
+        }
+
+        .instruction-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .instruction-img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Style for hidden image */
+        .hidden-image {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="./logo/Logo.png" alt="Logo" class="logo" />
+        <img src="./logo/header.png" alt="Header" class="header-image" />
+    </header>
+    <!-- <p style="text-align: center; font-size: 1.7rem; font-weight: bold; margin-bottom: 0;margin-top: 0;">
+        <br>👉🏽<a href="https://github.com/WayToSucceed-Coding/Class-27-Project-Template.git" target="_blank" class="">Click To Get Images</a>
+    </p> -->
+    <div class="container">
+        
+        <h1>Save The Spaceship-II</h1>
+        <p style="font-size: 1.5rem;text-align: left;">
+            In the previous class’s project, you set up the foundation of Save the Spaceship by displaying the spaceship and introducing meteors and stars as space objects. But so far, they’ve just been sitting in one place. Now, it’s time to bring motion into the game!
+
+            <br><br>In this project, you’ll make meteors and stars fall from the top of the screen, just like real space debris and collectibles. Instead of appearing in fixed positions, each object will spawn at a random spot and move downward at different speeds, adding a sense of unpredictability. You’ll also ensure that new objects appear at controlled intervals rather than all at once, making the game more balanced.
+
+<br><br>Here are the things you need to do:
+
+<br><br><b>Step 1: Open Your Project</b>
+
+        </p>
+        <ul style="font-size: 1.5rem;text-align: left;">
+            <li>Open the folder where you saved your "Save the Spaceship" game in the last class.</li>
+            <li>Open main.py in your code editor.</li>
+        </ul>
+        <p style="font-size: 1.5rem;text-align: left;">
+            <b>Step 2: Modify the SpaceObject Class</b>
+        </p>
+        <ul style="font-size: 1.5rem;text-align: left;">
+            <li>
+                Update the __init__() method to:
+                <ul>
+                    <li>Set <b>self.x</b> to <b>random.randint(0, WIDTH - 100)</b></li>
+                    <li>Set <b>self.y</b> to <b>-50</b></li>
+                    <li>Set <b>self.speed_y</b> to <b>random.randint(3, 7)</b></li>
+                </ul>
+            </li>
+            <li>Add a <b>move()</b> method to move objects downward by adding <b>self.speed_y</b> to <b>self.y</b></li>
+        </ul>
+        <p style="font-size: 1.5rem;text-align: left;">
+            <b>Step 3: Create a List to Store Objects</b>
+<br>Before the game loop, create an empty list named objects to store both meteors and stars.
+
+<br><br><b>Step 4: Add a Timer for Spawning Objects</b>
+
+        </p>
+        <ul style="font-size: 1.5rem;text-align: left;">
+            <li>Define a variable <b>spawn_interval = 2000</b> to control how often objects appear.</li>
+            <li>Define <b>last_spawn_time = 0</b> to track when the last object was created.</li>
+        </ul>
+        <p style="font-size: 1.5rem;text-align: left;">
+            <b>
+                Step 5: Check for New Objects to Spawn
+            </b>
+        </p>
+        <ul style="font-size: 1.5rem;text-align: left;">
+            <li>
+                Inside the game loop, store <b>pygame.time.ticks()</b> in <b>current_time</b>. 
+            </li>
+            <li>
+                Create an <b>if block</b> to check at least 2 seconds have passed since the last object spawn or if <b>last_spawn_time</b> is 0 and if either of it is true do the following:
+                <ul>
+                    <li>Create a new meteor or star and add it to <b>objects</b> list.</li>
+                    <li>Update <b>last_spawn_time </b>to <b>current_time</b>.</li>
+                </ul>
+            </li>
+        </ul>
+       
+        <p style="font-size: 1.5rem;text-align: left;">
+            <b>Step 6: Remove Off-Screen Objects</b>
+            <br>Use list comprehension to remove objects that have moved below the screen.
+            
+            <br><br><b>Step 7: Draw and Move Objects</b>
+            <br>Loop through objects, call <b>draw()</b> to display them, and <b>move()</b> to update their position.
+            
+            <br><br><b>Step 8: Run the Game</b>
+            <br>Save your file and run main.py to see meteors and stars falling continuously while the spaceship remains in place.
+            
+        </p>
+
+        
+        
+
+         
+
+         
+
+        
+
+         <p> <a href="https://waytosucceed.github.io/PY_projectshare/" target="_blank" class="button">👉 STEPS FOR SUBMITTING PROJECT</a></p>
+        <div style="text-align: left;">
+            <button class="button" id="showImageBtn">Sample Output</button>
+        </div>
+        
+        <!-- Hidden Images -->
+       
+        <img style="width: 40%;" src="1.gif" alt="Sample GIF" id="sampleImage1" class="hidden-image">
+        
+        
+        
+        
+    </div>
+
+    <script>
+        // Get the image and button elements
+        
+        var image1 = document.getElementById("sampleImage1");
+        
+        var button = document.getElementById("showImageBtn");
+
+        // When the user clicks the button, toggle the visibility of both images
+        button.onclick = function() {
+            if (image1.style.display === "none" || image1.style.display === "") {
+                
+                image1.style.display = "block"; // Show the second image
+            } else {
+               
+                image1.style.display = "none"; // Hide the first image
+                 // Hide the second image
+            }
+        }
+    </script>
+
+</body>
+
+</html>
